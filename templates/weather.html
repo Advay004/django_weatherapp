@@ -1,0 +1,16 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+{% if weatherdata %}
+    <div class="text-gray-600 flex flex-col items-center justify-center  ">
+    <h1>{{ weatherdata.city }}</h1>
+    <h2>{{ weatherdata.temperature }}</h2>
+    <P>{{ weatherdata.description }}</p>
+    
+    <img src="http://openweathermap.org/img/w/{{ weatherdata.icon }}.png"> 
+    
+    </div>
+{% endif %}

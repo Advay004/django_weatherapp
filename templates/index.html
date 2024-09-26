@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="bg-gray-600 p-7 flex justify-between">
+        <div>
+            <h1 class="font-extrabold text-white">Weather App</h1>
+        </div>
+       
+    </nav>
+    <div>
+        
+        <h1 class="font-extrabold text-gray-600 text-center mt-3 text-2xl">Know The Weather</h1>
+    <div id="box" class="border border-gray-600 rounded p-4 mt-5 shadow-lg mx-20  blur-sm">
+        <form method='POST'class="text-center">
+            {% csrf_token %}
+            <div class="text-center">
+            <label class=" text-center font-medium">City 1: </label>
+            <br>
+            <input class="text-center border border-gray-600 rounded shadow-lg" type="text" name="city1" placeholder="Enter the city">
+            </div>
+            <div class="text-center">
+                <label class=" text-center font-medium">City 2: </label>
+                <br>
+                <input class="text-center border border-gray-600 rounded shadow-lg" type="text" name="city2" placeholder="Enter the city">
+                </div>
+           
+            
+        
+            <div class="text-center">
+                <button id="check" class="bg-blue-600 rounded text-white px-4 py-2 hover:bg-blue-400 mx-auto mt-5   ">Check</button>
+            </div>
+        </form>
+        {% if weatherdata1 %}
+            <div class="border border-gray-600 rounded p-4 mt-10 shadow-lg mx-20 transform transition-transform duration-500 hover:scale-110 text-center ">
+                {% include  'weather.html' with weatherdata=weatherdata1  %}
+            </div>
+        {% endif %}
+        {% if weatherdata2 %}
+            <div class="border border-gray-600 rounded p-4 mt-10 shadow-lg mx-20 transform transition-transform duration-500 hover:scale-110 text-center">
+                {% include 'weather.html' with weatherdata=weatherdata2 %}
+            </div>
+        {% endif %}
+          
+        
+    </div>
+</div>
+    
+</body>
+</html>
